@@ -12,6 +12,7 @@
 		D3CE6DB71EE135330063F552 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3CE6DB51EE135330063F552 /* Main.storyboard */; };
 		D3CE6DB91EE135330063F552 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3CE6DB81EE135330063F552 /* Assets.xcassets */; };
 		D3CE6DBC1EE135330063F552 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3CE6DBA1EE135330063F552 /* LaunchScreen.storyboard */; };
+		D3E53F9D1EE17DA30028B61C /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3E53F9C1EE17DA30028B61C /* Ticker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		D3CE6DBB1EE135330063F552 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D3CE6DBD1EE135330063F552 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3CE6DC31EE141C10063F552 /* fokus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = fokus.entitlements; sourceTree = "<group>"; };
+		D3E53F9C1EE17DA30028B61C /* Ticker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				D3CE6DB81EE135330063F552 /* Assets.xcassets */,
 				D3CE6DBA1EE135330063F552 /* LaunchScreen.storyboard */,
 				D3CE6DBD1EE135330063F552 /* Info.plist */,
+				D3E53F9C1EE17DA30028B61C /* Ticker.swift */,
 			);
 			path = fokus;
 			sourceTree = "<group>";
@@ -153,6 +156,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3CE6DB41EE135330063F552 /* ViewController.swift in Sources */,
+				D3E53F9D1EE17DA30028B61C /* Ticker.swift in Sources */,
 				D3CE6DB21EE135330063F552 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,6 +321,7 @@
 				D3CE6DC21EE135330063F552 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -14,16 +14,23 @@ class ViewController: UIViewController {
     
     @IBOutlet var timeLabel: UILabel!
     
-    var motion = CMMotionManager()
+    @IBOutlet var tipLabel: UILabel!
     
-    var lastSecond = Int64(Date().timeIntervalSince1970)
+    var isFocus = false
     
-    var isFokus = false
+    var ticker: Ticker!
     
-    var fokusTime = 0 {
+    var manager = CMMotionManager()
+    
+    var focusTime = 0 {
         didSet {
-            timeLabel.text = String(format: "%d:%02d", fokusTime / 60, fokusTime % 60)
+            timeLabel.text = String(format: "%d:%02d", focusTime / 60, focusTime % 60)
         }
+    }
+    
+    override func viewDidLoad() {
+        ticker = Ticker(action: self.tickerAction, interval: 1)
+        manager.deviceMotionUpdateInterval = 1
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -31,42 +38,32 @@ class ViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        setupMotion()
+        UIApplication.shared.isIdleTimerDisabled = true
+        manager.startDeviceMotionUpdates()
+        ticker.start()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
-        releaseMotion()
-    }
-    
-    func setupMotion() {
-        UIApplication.shared.isIdleTimerDisabled = true
-        motion.deviceMotionUpdateInterval = 0.1
-        motion.startDeviceMotionUpdates(to: .main) { motion, error in
-            let second = Int64(Date().timeIntervalSince1970)
-            if second != self.lastSecond {
-                self.lastSecond = Int64(Date().timeIntervalSince1970)
-                if (motion?.gravity.z ?? 0) > 0.9 {
-                    self.fokusForOneSecond()
-                }
-            }
-        }
-    }
-    
-    func releaseMotion() {
         UIApplication.shared.isIdleTimerDisabled = false
-        motion.stopDeviceMotionUpdates()
+        manager.stopDeviceMotionUpdates()
+        ticker.stop()
     }
     
-    func fokusForOneSecond() {
-        fokusTime += 1
-        doHeartBeat()
+    func tickerAction() {
+        if manager.deviceMotion?.gravity.z ?? 0 > 0.9 {
+            focusTime += 1
+            doHeartBeat()
+            tipLabel.isHidden = true
+        } else {
+            tipLabel.isHidden = false
+        }
     }
     
     func doHeartBeat() {
         Thread {
             AudioServicesPlaySystemSound(1519)
             Thread.sleep(forTimeInterval: 0.25)
-            if self.fokusTime % 60 == 0 {
+            if self.focusTime % 60 == 0 {
                 AudioServicesPlaySystemSound(1521)
             } else {
                 AudioServicesPlaySystemSound(1520)

@@ -44,6 +44,7 @@
                     </view>
                     <connections>
                         <outlet property="timeLabel" destination="RqP-Bv-HIf" id="1hI-my-O6Q"/>
+                        <outlet property="tipLabel" destination="xrq-M7-5tu" id="sDc-MH-x73"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
