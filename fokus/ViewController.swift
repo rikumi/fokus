@@ -66,7 +66,11 @@ class ViewController: UIViewController {
         Thread {
             AudioServicesPlaySystemSound(1519)
             Thread.sleep(forTimeInterval: 0.25)
-            AudioServicesPlaySystemSound(1520)
+            if self.fokusTime % 60 == 0 {
+                AudioServicesPlaySystemSound(1521)
+            } else {
+                AudioServicesPlaySystemSound(1520)
+            }
         }.start()
     }
 
