@@ -50,11 +50,13 @@ class ViewController: UIViewController {
     }
     
     func tickerAction() {
-        if manager.deviceMotion?.gravity.z ?? 0 > 0.99 {
+        if manager.deviceMotion?.gravity.z ?? 0 > 0.98 {
+            UIDevice.current.isProximityMonitoringEnabled = true
             focusTime += 1
             doHeartBeat()
             tipLabel.isHidden = true
         } else {
+            UIDevice.current.isProximityMonitoringEnabled = false
             tipLabel.isHidden = false
         }
     }
