@@ -50,7 +50,7 @@ class ViewController: UIViewController {
     }
     
     func tickerAction() {
-        if manager.deviceMotion?.gravity.z ?? 0 > 0.9 {
+        if manager.deviceMotion?.gravity.z ?? 0 > 0.99 {
             focusTime += 1
             doHeartBeat()
             tipLabel.isHidden = true
