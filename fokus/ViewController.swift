@@ -68,7 +68,7 @@ class ViewController: UIViewController {
             if self.focusTime % 60 == 0 {
                 AudioServicesPlaySystemSound(1521)
             } else {
-                AudioServicesPlaySystemSound(1520)
+                AudioServicesPlaySystemSound(1519)
             }
         }.start()
     }
