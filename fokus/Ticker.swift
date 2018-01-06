@@ -1,11 +1,3 @@
-//
-//  Ticker.swift
-//  fokus
-//
-//  Created by Vhyme on 2017/6/2.
-//  Copyright © 2017年 HeraldStudio. All rights reserved.
-//
-
 import Foundation
 import UIKit
 

@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  fokus
-//
-//  Created by Vhyme on 2017/6/2.
-//  Copyright © 2017年 HeraldStudio. All rights reserved.
-//
-
 import UIKit
 import CoreMotion
 import AVFoundation
@@ -63,19 +55,14 @@ class ViewController: UIViewController {
     
     func doHeartBeat() {
         Thread {
-            AudioServicesPlaySystemSound(1519)
-            Thread.sleep(forTimeInterval: 0.25)
+//            AudioServicesPlaySystemSound(1519)
+//            Thread.sleep(forTimeInterval: 0.25)
             if self.focusTime % 60 == 0 {
                 AudioServicesPlaySystemSound(1521)
             } else {
                 AudioServicesPlaySystemSound(1519)
             }
         }.start()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }
 
